@@ -1,0 +1,2606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#050807">
+<meta name="description" content="Bereket Kassahun — Developer, Student & Cybersecurity Enthusiast">
+<title>Bereket Kassahun | Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+ --bg:#030705;
+ --bg2:#07100b;
+ --card:rgba(9,20,14,.72);
+ --card2:#0b1811;
+ --text:#effff5;
+ --muted:#91a79a;
+ --green:#00ff88;
+ --green2:#00d970;
+ --border:rgba(0,255,136,.16);
+ --shadow:0 25px 80px rgba(0,0,0,.38);
+ --radius:22px;
+}
+
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+html{
+ scroll-behavior:smooth;
+}
+
+body{
+ min-height:100vh;
+ overflow-x:hidden;
+ background:
+ radial-gradient(circle at 80% 10%,rgba(0,255,136,.09),transparent 25%),
+ radial-gradient(circle at 10% 60%,rgba(0,255,136,.04),transparent 30%),
+ var(--bg);
+ color:var(--text);
+ font-family:Inter,sans-serif;
+ line-height:1.6;
+ transition:.35s;
+}
+
+body.light{
+ --bg:#eef8f2;
+ --bg2:#e3f2e9;
+ --card:rgba(255,255,255,.72);
+ --card2:#fff;
+ --text:#102219;
+ --muted:#587064;
+ --border:rgba(0,130,70,.18);
+ --shadow:0 25px 70px rgba(15,60,35,.12);
+}
+
+::selection{
+ background:var(--green);
+ color:#00150b;
+}
+
+::-webkit-scrollbar{
+ width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+ background:var(--green);
+ border-radius:20px;
+}
+
+#progress{
+ position:fixed;
+ top:0;
+ left:0;
+ height:3px;
+ width:0;
+ background:linear-gradient(90deg,var(--green),#7affc0);
+ z-index:9999;
+ box-shadow:0 0 15px var(--green);
+}
+
+#particles{
+ position:fixed;
+ inset:0;
+ z-index:-2;
+ pointer-events:none;
+}
+
+/* NAVIGATION */
+
+header{
+ position:fixed;
+ top:0;
+ left:0;
+ right:0;
+ height:78px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:0 6%;
+ z-index:1000;
+ background:rgba(3,7,5,.62);
+ backdrop-filter:blur(20px);
+ border-bottom:1px solid var(--border);
+}
+
+body.light header{
+ background:rgba(238,248,242,.72);
+}
+
+.logo{
+ display:flex;
+ align-items:center;
+ gap:12px;
+ color:var(--text);
+ text-decoration:none;
+}
+
+.logo-mark{
+ width:43px;
+ height:43px;
+ display:grid;
+ place-items:center;
+ border-radius:13px;
+ background:#07150d;
+ border:1px solid var(--green);
+ color:var(--green);
+ font:700 18px "Space Grotesk";
+ box-shadow:0 0 25px rgba(0,255,136,.13);
+}
+
+.logo-text strong{
+ display:block;
+ font-size:14px;
+}
+
+.logo-text small{
+ color:var(--muted);
+ font-size:10px;
+}
+
+nav{
+ display:flex;
+ gap:28px;
+}
+
+nav a{
+ position:relative;
+ color:var(--muted);
+ text-decoration:none;
+ font-size:13px;
+ font-weight:600;
+ transition:.25s;
+}
+
+nav a:hover,
+nav a.active{
+ color:var(--green);
+}
+
+nav a.active::after{
+ content:"";
+ position:absolute;
+ left:0;
+ right:0;
+ bottom:-9px;
+ height:2px;
+ background:var(--green);
+ box-shadow:0 0 10px var(--green);
+}
+
+.nav-actions{
+ display:flex;
+ gap:9px;
+}
+
+.icon{
+ width:42px;
+ height:42px;
+ border:1px solid var(--border);
+ background:var(--card);
+ color:var(--text);
+ border-radius:12px;
+ cursor:pointer;
+ transition:.25s;
+}
+
+.icon:hover{
+ border-color:var(--green);
+ color:var(--green);
+ transform:translateY(-2px);
+}
+
+.menu{
+ display:none;
+}
+
+/* LAYOUT */
+
+main{
+ position:relative;
+}
+
+section{
+ max-width:1200px;
+ margin:auto;
+ padding:115px 6% 60px;
+}
+
+/* HERO */
+
+.hero{
+ min-height:100vh;
+ display:grid;
+ grid-template-columns:1.05fr .95fr;
+ align-items:center;
+ gap:50px;
+ padding-top:150px;
+}
+
+.badge{
+ display:inline-flex;
+ align-items:center;
+ gap:8px;
+ padding:8px 13px;
+ border:1px solid var(--border);
+ border-radius:30px;
+ color:var(--green);
+ background:rgba(0,255,136,.04);
+ font-size:11px;
+ font-weight:800;
+ letter-spacing:1.5px;
+}
+
+.dot{
+ width:7px;
+ height:7px;
+ background:var(--green);
+ border-radius:50%;
+ box-shadow:0 0 12px var(--green);
+ animation:pulse 1.6s infinite;
+}
+
+.hero h1{
+ font:700 clamp(50px,7vw,91px)/.95 "Space Grotesk";
+ letter-spacing:-5px;
+ margin:25px 0 18px;
+}
+
+.hero h1 span{
+ color:var(--green);
+}
+
+.hero h2{
+ color:var(--muted);
+ font:600 clamp(19px,2.3vw,27px) "Space Grotesk";
+ min-height:40px;
+}
+
+.cursor{
+ color:var(--green);
+ animation:blink .7s infinite;
+}
+
+.hero-description{
+ max-width:650px;
+ margin:20px 0;
+ color:var(--muted);
+ font-size:16px;
+}
+
+.buttons{
+ display:flex;
+ flex-wrap:wrap;
+ gap:12px;
+ margin-top:28px;
+}
+
+.btn{
+ min-height:48px;
+ padding:0 19px;
+ border-radius:13px;
+ border:1px solid var(--border);
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:8px;
+ text-decoration:none;
+ font-weight:700;
+ font-size:13px;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.btn-primary{
+ color:#00150b;
+ background:var(--green);
+ border-color:var(--green);
+}
+
+.btn-primary:hover{
+ transform:translateY(-4px) scale(1.02);
+ box-shadow:0 15px 40px rgba(0,255,136,.23);
+}
+
+.btn-secondary{
+ color:var(--text);
+ background:var(--card);
+}
+
+.btn-secondary:hover{
+ border-color:var(--green);
+ color:var(--green);
+ transform:translateY(-3px);
+}
+
+.tech-row{
+ display:flex;
+ flex-wrap:wrap;
+ gap:9px;
+ margin-top:28px;
+}
+
+.tech{
+ padding:7px 12px;
+ border-radius:30px;
+ background:var(--card);
+ border:1px solid var(--border);
+ color:var(--muted);
+ font-size:11px;
+}
+
+/* PROFILE */
+
+.hero-photo{
+ display:flex;
+ justify-content:center;
+ position:relative;
+}
+
+.photo-shell{
+ position:relative;
+ width:min(410px,85vw);
+ aspect-ratio:1;
+ padding:9px;
+ border:1px solid var(--green);
+ border-radius:32px;
+ background:linear-gradient(145deg,rgba(0,255,136,.1),rgba(0,0,0,.3));
+ box-shadow:
+ 0 0 80px rgba(0,255,136,.09),
+ inset 0 0 30px rgba(0,255,136,.04);
+ transform-style:preserve-3d;
+}
+
+.photo-shell::before,
+.photo-shell::after{
+ content:"";
+ position:absolute;
+ width:65px;
+ height:65px;
+ border-color:var(--green);
+ pointer-events:none;
+}
+
+.photo-shell::before{
+ left:-10px;
+ top:-10px;
+ border-left:2px solid;
+ border-top:2px solid;
+ border-radius:20px 0 0 0;
+}
+
+.photo-shell::after{
+ right:-10px;
+ bottom:-10px;
+ border-right:2px solid;
+ border-bottom:2px solid;
+ border-radius:0 0 20px 0;
+}
+
+#profile{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ border-radius:24px;
+ background:#06100b;
+ display:block;
+}
+
+.floating-card{
+ position:absolute;
+ padding:12px 15px;
+ border:1px solid var(--border);
+ background:rgba(4,12,8,.82);
+ backdrop-filter:blur(14px);
+ border-radius:14px;
+ box-shadow:var(--shadow);
+ font-size:11px;
+}
+
+.floating-card b{
+ display:block;
+ color:var(--green);
+}
+
+.float-one{
+ top:8%;
+ left:-8%;
+}
+
+.float-two{
+ bottom:12%;
+ right:-8%;
+}
+
+/* SECTION */
+
+.section-head{
+ margin-bottom:42px;
+}
+
+.section-number{
+ color:var(--green);
+ font:700 11px "Space Grotesk";
+ letter-spacing:2px;
+}
+
+.section-head h2{
+ font:700 clamp(34px,5vw,55px)/1 "Space Grotesk";
+ margin-top:8px;
+ letter-spacing:-2px;
+}
+
+.section-head h2 span{
+ color:var(--green);
+}
+
+/* ABOUT */
+
+.about-grid{
+ display:grid;
+ grid-template-columns:1.2fr .8fr;
+ gap:20px;
+}
+
+.panel{
+ padding:30px;
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:var(--radius);
+ backdrop-filter:blur(18px);
+ box-shadow:var(--shadow);
+}
+
+.about-text p{
+ color:var(--muted);
+ margin-bottom:17px;
+}
+
+.about-text strong{
+ color:var(--text);
+}
+
+.fact-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+}
+
+.fact{
+ padding:19px;
+ border:1px solid var(--border);
+ border-radius:15px;
+ background:rgba(0,255,136,.025);
+}
+
+.fact-icon{
+ font-size:20px;
+ margin-bottom:7px;
+}
+
+.fact b{
+ display:block;
+ font-size:13px;
+}
+
+.fact small{
+ color:var(--muted);
+ font-size:11px;
+}
+
+/* SKILLS */
+
+.skills{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:15px;
+}
+
+.skill{
+ position:relative;
+ padding:23px;
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:18px;
+ cursor:pointer;
+ overflow:hidden;
+ transition:.3s;
+}
+
+.skill::before{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:radial-gradient(
+   circle at var(--x,50%) var(--y,50%),
+   rgba(0,255,136,.12),
+   transparent 35%
+ );
+ opacity:0;
+ transition:.3s;
+}
+
+.skill:hover{
+ transform:translateY(-7px);
+ border-color:rgba(0,255,136,.5);
+}
+
+.skill:hover::before{
+ opacity:1;
+}
+
+.skill-top{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:8px;
+ position:relative;
+}
+
+.skill-name{
+ font-weight:700;
+}
+
+.skill-percent{
+ color:var(--green);
+ font-size:11px;
+}
+
+.skill small{
+ color:var(--muted);
+ font-size:11px;
+}
+
+.bar{
+ height:5px;
+ background:rgba(255,255,255,.06);
+ border-radius:20px;
+ margin-top:16px;
+ overflow:hidden;
+}
+
+.bar i{
+ display:block;
+ height:100%;
+ background:linear-gradient(90deg,var(--green2),var(--green));
+ border-radius:20px;
+ transform:scaleX(0);
+ transform-origin:left;
+ transition:1.2s cubic-bezier(.16,1,.3,1);
+}
+
+/* PROJECTS */
+
+.project-tools{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:15px;
+ margin-bottom:25px;
+}
+
+.filters{
+ display:flex;
+ gap:8px;
+ flex-wrap:wrap;
+}
+
+.filter{
+ padding:8px 13px;
+ border-radius:20px;
+ border:1px solid var(--border);
+ color:var(--muted);
+ background:var(--card);
+ cursor:pointer;
+ font-size:11px;
+}
+
+.filter.active,
+.filter:hover{
+ color:#00150b;
+ background:var(--green);
+ border-color:var(--green);
+}
+
+.projects{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+
+.project{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:20px;
+ overflow:hidden;
+ transition:.4s;
+ transform-style:preserve-3d;
+}
+
+.project:hover{
+ border-color:rgba(0,255,136,.45);
+ box-shadow:var(--shadow);
+}
+
+.project-image{
+ height:190px;
+ display:grid;
+ place-items:center;
+ position:relative;
+ overflow:hidden;
+ background:
+ radial-gradient(circle at 50% 45%,rgba(0,255,136,.17),transparent 45%),
+ #06100b;
+}
+
+.project-image::after{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:
+ linear-gradient(
+ transparent 50%,
+ rgba(0,255,136,.025) 50%
+ );
+ background-size:100% 5px;
+}
+
+.project-symbol{
+ font:800 65px "Space Grotesk";
+ color:var(--green);
+ z-index:1;
+ text-shadow:0 0 30px rgba(0,255,136,.4);
+}
+
+.project-content{
+ padding:21px;
+}
+
+.project-tag{
+ color:var(--green);
+ font-size:10px;
+ font-weight:800;
+ letter-spacing:2px;
+}
+
+.project h3{
+ margin:7px 0;
+ font:700 21px "Space Grotesk";
+}
+
+.project p{
+ color:var(--muted);
+ font-size:12px;
+ margin-bottom:15px;
+}
+
+.project-bottom{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+}
+
+.project-tech{
+ color:var(--muted);
+ font-size:10px;
+}
+
+.view{
+ border:0;
+ background:none;
+ color:var(--green);
+ font-weight:700;
+ cursor:pointer;
+}
+
+/* SOCIALS */
+
+.social-section{
+ margin-top:20px;
+}
+
+.social-title{
+ color:var(--green);
+ font:700 11px "Space Grotesk";
+ letter-spacing:2px;
+ margin-bottom:15px;
+}
+
+.socials{
+ display:flex;
+ flex-wrap:wrap;
+ gap:10px;
+}
+
+.social{
+ width:48px;
+ height:48px;
+ display:grid;
+ place-items:center;
+ border:1px solid var(--border);
+ border-radius:14px;
+ color:var(--muted);
+ background:var(--card);
+ transition:.3s;
+}
+
+.social svg{
+ width:21px;
+ height:21px;
+ fill:currentColor;
+}
+
+.social:hover{
+ color:var(--green);
+ border-color:var(--green);
+ transform:translateY(-5px);
+ box-shadow:0 10px 30px rgba(0,255,136,.12);
+}
+
+/* MODAL */
+
+.modal{
+ position:fixed;
+ inset:0;
+ z-index:3000;
+ display:none;
+ place-items:center;
+ padding:20px;
+ background:rgba(0,0,0,.72);
+ backdrop-filter:blur(10px);
+}
+
+.modal.open{
+ display:grid;
+}
+
+.modal-box{
+ max-width:560px;
+ width:100%;
+ background:var(--card2);
+ border:1px solid var(--border);
+ border-radius:22px;
+ padding:30px;
+ box-shadow:var(--shadow);
+ animation:modalIn .3s ease;
+}
+
+.modal-top{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:20px;
+}
+
+.close{
+ width:38px;
+ height:38px;
+ border-radius:10px;
+ border:1px solid var(--border);
+ background:transparent;
+ color:var(--text);
+ cursor:pointer;
+}
+
+.modal-box p{
+ color:var(--muted);
+ font-size:13px;
+}
+
+/* COMMAND PALETTE */
+
+.command{
+ position:fixed;
+ inset:0;
+ z-index:4000;
+ display:none;
+ align-items:flex-start;
+ justify-content:center;
+ padding-top:15vh;
+ background:rgba(0,0,0,.7);
+ backdrop-filter:blur(10px);
+}
+
+.command.open{
+ display:flex;
+}
+
+.command-box{
+ width:min(600px,90%);
+ background:var(--card2);
+ border:1px solid var(--border);
+ border-radius:18px;
+ overflow:hidden;
+ box-shadow:var(--shadow);
+}
+
+.command-input{
+ border:0;
+ border-bottom:1px solid var(--border);
+ border-radius:0;
+ font-size:16px;
+}
+
+.command-list button{
+ width:100%;
+ padding:14px 18px;
+ border:0;
+ border-bottom:1px solid var(--border);
+ background:transparent;
+ color:var(--text);
+ text-align:left;
+ cursor:pointer;
+}
+
+.command-list button:hover{
+ background:rgba(0,255,136,.07);
+ color:var(--green);
+}
+
+/* REVEAL */
+
+.reveal{
+ opacity:0;
+ transform:translateY(25px);
+ transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.visible{
+ opacity:1;
+ transform:none;
+}
+
+/* ANIMATIONS */
+
+@keyframes pulse{
+ 50%{
+  transform:scale(.65);
+  opacity:.5;
+ }
+}
+
+@keyframes blink{
+ 50%{
+  opacity:0;
+ }
+}
+
+@keyframes modalIn{
+ from{
+  opacity:0;
+  transform:translateY(20px) scale(.97);
+ }
+ to{
+  opacity:1;
+  transform:none;
+ }
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+ nav{
+  display:none;
+  position:absolute;
+  top:78px;
+  left:0;
+  right:0;
+  padding:18px 6%;
+  flex-direction:column;
+  gap:17px;
+  background:var(--bg2);
+  border-bottom:1px solid var(--border);
+ }
+
+ nav.open{
+  display:flex;
+ }
+
+ .menu{
+  display:block;
+ }
+
+ .hero{
+  grid-template-columns:1fr;
+  text-align:center;
+ }
+
+ .hero-description{
+  margin-left:auto;
+  margin-right:auto;
+ }
+
+ .buttons,
+ .tech-row{
+  justify-content:center;
+ }
+
+ .hero-photo{
+  order:-1;
+ }
+
+ .floating-card{
+  display:none;
+ }
+
+ .about-grid{
+  grid-template-columns:1fr;
+ }
+
+ .skills,
+ .projects{
+  grid-template-columns:1fr 1fr;
+ }
+
+}
+
+@media(max-width:600px){
+
+ section{
+  padding-left:5%;
+  padding-right:5%;
+ }
+
+ .hero{
+  padding-top:125px;
+ }
+
+ .hero h1{
+  letter-spacing:-3px;
+ }
+
+ .skills,
+ .projects{
+  grid-template-columns:1fr;
+ }
+
+ .fact-grid{
+  grid-template-columns:1fr;
+ }
+
+ .logo-text{
+  display:none;
+ }
+
+}
+
+@media(prefers-reduced-motion:reduce){
+
+ *,
+ *::before,
+ *::after{
+  animation-duration:.01ms!important;
+  animation-iteration-count:1!important;
+  scroll-behavior:auto!important;
+  transition-duration:.01ms!important;
+ }
+
+}
+</style>
+</head>
+
+<body>
+
+<div id="progress"></div>
+<canvas id="particles"></canvas>
+
+<!-- NAVIGATION -->
+
+<header>
+
+<a href="#home" class="logo">
+
+<div class="logo-mark">
+BK
+</div>
+
+<div class="logo-text">
+<strong>Bereket Kasahun</strong>
+<small>Developer Portfolio</small>
+</div>
+
+</a>
+
+<nav id="nav">
+
+<a href="#home" class="active">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+<div class="nav-actions">
+
+<button class="icon" id="commandBtn" title="Command menu">
+⌘
+</button>
+
+<button class="icon" id="themeBtn" title="Theme">
+☼
+</button>
+
+<button class="icon menu" id="menuBtn">
+☰
+</button>
+
+</div>
+
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="hero-content reveal">
+
+<div class="badge">
+<span class="dot"></span>
+OPEN TO OPPORTUNITIES
+</div>
+
+<h1>
+Bereket
+<span>Kasahun</span>
+</h1>
+
+<h2>
+<span id="typing"></span>
+<span class="cursor">|</span>
+</h2>
+
+<p class="hero-description">
+
+I'm a student and developer from Ethiopia passionate about programming, cybersecurity, physics and building useful digital tools and experiences.
+
+</p>
+
+<div class="buttons">
+
+<a href="#projects" class="btn btn-primary magnetic">
+Explore My Work →
+</a>
+
+<a href="#contact" class="btn btn-secondary magnetic">
+Let's Connect
+</a>
+
+</div>
+
+<div class="tech-row">
+
+<span class="tech">Python</span>
+<span class="tech">Web Development</span>
+<span class="tech">C</span>
+<span class="tech">Cybersecurity</span>
+<span class="tech">Drawing</span>
+
+</div>
+
+</div>
+
+
+<!-- PERMANENT PROFILE IMAGE -->
+
+<div class="hero-photo reveal">
+
+<div class="photo-shell" id="photoShell">
+
+
+<img
+id="profile"
+src="profile.jpg"
+alt="Bereket Kassahun profile photo"
+>
+
+</div>
+
+<div class="floating-card float-one">
+<b>⚡ CURRENT FOCUS</b>
+Cybersecurity
+</div>
+
+<div class="floating-card float-two">
+<b>🚀 BUILDING</b>
+Real-world projects
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="section-head reveal">
+
+<div class="section-number">
+01 / ABOUT
+</div>
+
+<h2>
+A little <span>about me.</span>
+</h2>
+
+</div>
+
+
+<div class="about-grid">
+
+<div class="panel about-text reveal">
+
+<p>
+My name is <strong>Bereket Kassahun</strong>.
+I'm a natural science student who enjoys solving problems
+and understanding how technology works.
+</p>
+
+<p>
+I spend my free time learning programming, web development, cybersecurity and software development. I enjoy taking an idea and turning it into something people can actually use.
+</p>
+
+<p>
+This portfolio is not just a collection of projects, it's a living record of what I'm learning and building.
+</p>
+
+</div>
+
+
+<div class="panel reveal">
+
+<div class="fact-grid">
+
+<div class="fact">
+<div class="fact-icon">🎓</div>
+<b>Student</b>
+<small>Natural Science</small>
+</div>
+
+<div class="fact">
+<div class="fact-icon">💻</div>
+<b>Developer</b>
+<small>Python, Web & C</small>
+</div>
+
+<div class="fact">
+<div class="fact-icon">🛡️</div>
+<b>Security</b>
+<small>Cryptography & Blue Team</small>
+</div>
+
+<div class="fact">
+<div class="fact-icon">🎨</div>
+<b>Art</b>
+<small>Drawing</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="section-head reveal">
+
+<div class="section-number">
+02 / SKILLS
+</div>
+
+<h2>
+What I <span>work with.</span>
+</h2>
+
+</div>
+
+
+<div class="skills">
+
+<div class="skill reveal">
+
+<div class="skill-top">
+<span class="skill-name">Python</span>
+<span class="skill-percent">80%</span>
+</div>
+
+<small>Programming, automation & security tools</small>
+
+<div class="bar">
+<i data-width="80%"></i>
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+<span class="skill-name">Web Development</span>
+<span class="skill-percent">84%</span>
+</div>
+
+<small>HTML, CSS, JavaScript & responsive UI</small>
+
+<div class="bar">
+<i data-width="84%"></i>
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+<span class="skill-name">C</span>
+<span class="skill-percent">60%</span>
+</div>
+
+<small>Programming & low-level concepts</small>
+
+<div class="bar">
+<i data-width="60%"></i>
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+<span class="skill-name">Cryptography</span>
+<span class="skill-percent">58%</span>
+</div>
+
+<small>Cryptographic concepts & implementation</small>
+
+<div class="bar">
+<i data-width="58%"></i>
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+<span class="skill-name">Blue Team</span>
+<span class="skill-percent">70%</span>
+</div>
+
+<small>Defensive security & security analysis</small>
+
+<div class="bar">
+<i data-width="70%"></i>
+</div>
+
+</div>
+
+
+<div class="skill reveal">
+
+<div class="skill-top">
+<span class="skill-name">Art / Drawing</span>
+<span class="skill-percent">76%</span>
+</div>
+
+<small>Traditional & digital drawing</small>
+
+<div class="bar">
+<i data-width="76%"></i>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="section-head reveal">
+
+<div class="section-number">
+03 / PROJECTS
+</div>
+
+<h2>
+Things I've <span>built.</span>
+</h2>
+
+</div>
+
+
+<div class="project-tools">
+
+<div class="filters">
+
+<button class="filter active" data-filter="all">
+All
+</button>
+
+<button class="filter" data-filter="software">
+Software
+</button>
+
+<button class="filter" data-filter="security">
+Security
+</button>
+
+<button class="filter" data-filter="c">
+C
+</button>
+
+</div>
+
+</div>
+
+
+<div class="projects">
+
+
+<!-- SCHOOL MANAGEMENT -->
+
+<article
+class="project reveal"
+data-category="software"
+data-title="School Management System"
+data-description="A school management system designed for teachers, directors and students. The system is intended to bring academic and administrative workflows together in one platform."
+>
+
+<div class="project-image">
+<div class="project-symbol">🎓</div>
+</div>
+
+<div class="project-content">
+
+<div class="project-tag">
+SOFTWARE
+</div>
+
+<h3>
+School Management System
+</h3>
+
+<p>
+Platform for teachers, directors and students.
+</p>
+
+<div class="project-bottom">
+
+<span class="project-tech">
+Web · Database
+</span>
+
+<button class="view">
+View Details →
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- PHISHING DETECTION -->
+
+<article
+class="project reveal"
+data-category="security"
+data-title="Phishing Detection Tool"
+data-description="A Python-based defensive tool designed to analyze suspicious links and identify indicators that may be associated with phishing attempts."
+>
+
+<div class="project-image">
+<div class="project-symbol">🛡</div>
+</div>
+
+<div class="project-content">
+
+<div class="project-tag">
+CYBERSECURITY
+</div>
+
+<h3>
+Phishing Detection Tool
+</h3>
+
+<p>
+Python-based phishing detection project.
+</p>
+
+<div class="project-bottom">
+
+<span class="project-tech">
+Python · Security
+</span>
+
+<button class="view">
+View Details →
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- PHISHING TOOL -->
+
+<article
+class="project reveal"
+data-category="security"
+data-title="Phishing Tool"
+data-description="A cybersecurity learning project implemented with Python for understanding phishing techniques in controlled and authorized security-testing environments."
+>
+
+<div class="project-image">
+<div class="project-symbol">🎣</div>
+</div>
+
+<div class="project-content">
+
+<div class="project-tag">
+SECURITY RESEARCH
+</div>
+
+<h3>
+Phishing Tool
+</h3>
+
+<p>
+Python security research project.
+</p>
+
+<div class="project-bottom">
+
+<span class="project-tech">
+Python · Cybersecurity
+</span>
+
+<button class="view">
+View Details →
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- CRYPTOGRAPHY -->
+
+<article
+class="project reveal"
+data-category="security"
+data-title="Custom Cryptographic Encryption Method"
+data-description="A cryptography project exploring the design and implementation of a custom encryption method for learning purposes, with emphasis on understanding encryption concepts."
+>
+
+<div class="project-image">
+<div class="project-symbol">🔐</div>
+</div>
+
+<div class="project-content">
+
+<div class="project-tag">
+CRYPTOGRAPHY
+</div>
+
+<h3>
+Custom Encryption Method
+</h3>
+
+<p>
+Experimental cryptographic implementation.
+</p>
+
+<div class="project-bottom">
+
+<span class="project-tech">
+Python · Cryptography
+</span>
+
+<button class="view">
+View Details →
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- C MALWARE -->
+
+<article
+class="project reveal"
+data-category="c"
+data-title="Malware Research Project"
+data-description="A controlled C-language security research project created for malware-analysis and cybersecurity learning in an isolated laboratory environment."
+>
+
+<div class="project-image">
+<div class="project-symbol">C</div>
+</div>
+
+<div class="project-content">
+
+<div class="project-tag">
+C / SECURITY
+</div>
+
+<h3>
+Malware Development
+</h3>
+
+<p>
+C language cybersecurity research project.
+</p>
+
+<div class="project-bottom">
+
+<span class="project-tech">
+C · Security Research
+</span>
+
+<button class="view">
+View Details →
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT / SOCIAL -->
+
+<section id="contact">
+
+<div class="section-head reveal">
+
+<div class="section-number">
+04 / CONNECT
+</div>
+
+<h2>
+Let's <span>connect.</span>
+</h2>
+
+</div>
+
+
+<div class="panel reveal">
+
+<p style="color:var(--muted);max-width:650px;margin-bottom:30px">
+
+Interested in my work, have an opportunity, or simply want
+to connect? Find me on the platforms below.
+
+</p>
+
+
+<div class="social-section">
+
+<div class="social-title">
+SOCIAL MEDIA & CONTACT
+</div>
+
+
+<div class="socials">
+
+<!-- EMAIL -->
+
+<a
+class="social"
+href="mailto: bereketkassahun908@gmail.com"
+title="Email"
+aria-label="Email"
+>
+
+<svg viewBox="0 0 24 24">
+<path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5v2Z"/>
+</svg>
+
+</a>
+
+
+<!-- INSTAGRAM -->
+
+<a
+class="social"
+href="https://instagram.com/blessed_2008813"
+target="_blank"
+rel="noopener"
+title="Instagram"
+aria-label="Instagram"
+>
+
+<svg viewBox="0 0 24 24">
+<path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5ZM17.5 6a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.5 6Z"/>
+</svg>
+
+</a>
+
+
+<!-- TELEGRAM -->
+
+<a
+class="social"
+href="https://t.me/void_0011"
+target="_blank"
+rel="noopener"
+title="Telegram"
+aria-label="Telegram"
+>
+
+<svg viewBox="0 0 24 24">
+<path d="M21.8 4.2 18.7 19c-.2 1- .8 1.2-1.6.8l-4.4-3.2-2.1 2c-.2.2-.4.4-.8.4l.3-4.5 8.1-7.3c.4-.4-.1-.6-.6-.2L7.6 13l-4.3-1.4c-.9-.3-.9-.9.2-1.3L20.2 3c.8-.3 1.9.2 1.6 1.2Z"/>
+</svg>
+
+</a>
+
+
+<!-- GITHUB -->
+
+<a
+class="social"
+href="https://github.com/Bereket635"
+target="_blank"
+rel="noopener"
+title="GitHub"
+aria-label="GitHub"
+>
+
+<svg viewBox="0 0 24 24">
+<path d="M12 .7a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.6-.8 1.6-.8.9-1.6 2.5-1.1 3.1-.9.1-.7.4-1.1.7-1.4-2.5-.3-5.1-1.3-5.1-5.6 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-3 0 0 .9-.3 3 1.1a10.4 10.4 0 0 1 5.5 0c2.1-1.4 3-1.1 3-1.1.6 1.6.2 2.7.1 3 .7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.3-5.1 5.6.4.3.7 1 .7 1.9v2.8c0 .3.2.7.8.6A12 12 0 0 0 12 .7Z"/>
+</svg>
+
+</a>
+
+
+<!-- YOUTUBE -->
+
+<a
+class="social"
+href="https://youtube.com/@BereketKassahun-f3n"
+target="_blank"
+rel="noopener"
+title="YouTube"
+aria-label="YouTube"
+>
+
+<svg viewBox="0 0 24 24">
+<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/>
+</svg>
+
+</a>
+
+
+<!-- LINKEDIN -->
+
+<a
+class="social"
+href="https://www.linkedin.com/in/bereket-kassahun-994805430"
+target="_blank"
+rel="noopener"
+title="LinkedIn"
+aria-label="LinkedIn"
+>
+
+<svg viewBox="0 0 24 24">
+<path d="M4.5 3A2.5 2.5 0 1 1 2 5.5 2.5 2.5 0 0 1 4.5 3ZM2.3 8.5h4.4V22H2.3V8.5ZM9.4 8.5h4.2v1.8h.1c.6-1.1 2-2.2 4.1-2.2 4.4 0 5.2 2.9 5.2 6.7V22h-4.4v-6.4c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V22H9.4V8.5Z"/>
+</svg>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+© <span id="year"></span>
+Bereket Kassahun
+
+<span>·</span>
+
+Built with HTML, CSS & JavaScript
+
+</footer>
+
+
+<!-- PROJECT MODAL -->
+
+<div
+class="modal"
+id="projectModal"
+role="dialog"
+aria-modal="true"
+aria-hidden="true"
+>
+
+<div class="modal-box">
+
+<div class="modal-top">
+
+<h2 id="modalTitle">
+Project
+</h2>
+
+<button
+class="close"
+id="closeModal"
+>
+✕
+</button>
+
+</div>
+
+<p id="modalDescription"></p>
+
+</div>
+
+</div>
+
+
+<!-- COMMAND PALETTE -->
+
+<div
+class="command"
+id="command"
+>
+
+<div class="command-box">
+
+<input
+class="command-input"
+id="commandInput"
+placeholder="Search or jump to..."
+autocomplete="off"
+>
+
+<div class="command-list">
+
+<button data-go="#home">
+⌂ Home
+</button>
+
+<button data-go="#about">
+◎ About
+</button>
+
+<button data-go="#skills">
+⚡ Skills
+</button>
+
+<button data-go="#projects">
+▦ Projects
+</button>
+
+<button data-go="#contact">
+◎ Connect
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* BASIC HELPERS */
+
+const $ = selector => document.querySelector(selector);
+const $$ = selector => document.querySelectorAll(selector);
+
+
+/* YEAR */
+
+$("#year").textContent =
+new Date().getFullYear();
+
+
+/* TYPING */
+
+const words = [
+ "Student",
+ "Developer",
+ "Cybersecurity Enthusiast",
+ "Problem Solver",
+ "Future Engineer"
+];
+
+let wordIndex = 0;
+let letterIndex = 0;
+let deleting = false;
+
+function typing(){
+
+ const element = $("#typing");
+ const word = words[wordIndex];
+
+ element.textContent =
+ word.substring(0,letterIndex);
+
+ if(!deleting){
+
+   letterIndex++;
+
+   if(letterIndex > word.length){
+
+     deleting = true;
+
+     setTimeout(typing,1200);
+
+     return;
+   }
+
+   setTimeout(typing,75);
+
+ }else{
+
+   letterIndex--;
+
+   if(letterIndex < 0){
+
+     letterIndex = 0;
+     deleting = false;
+
+     wordIndex =
+     (wordIndex + 1) % words.length;
+
+     setTimeout(typing,350);
+
+     return;
+   }
+
+   setTimeout(typing,40);
+ }
+
+}
+
+typing();
+
+
+/* SCROLL PROGRESS */
+
+function updateProgress(){
+
+ const scrollTop =
+ window.scrollY;
+
+ const height =
+ document.documentElement.scrollHeight -
+ window.innerHeight;
+
+ const progress =
+ height > 0
+ ? (scrollTop / height) * 100
+ : 0;
+
+ $("#progress").style.width =
+ progress + "%";
+
+}
+
+window.addEventListener(
+ "scroll",
+ updateProgress,
+ {passive:true}
+);
+
+
+/* SCROLL REVEAL */
+
+const revealObserver =
+new IntersectionObserver(
+ entries => {
+
+   entries.forEach(entry => {
+
+     if(entry.isIntersecting){
+
+       entry.target.classList.add("visible");
+
+       const bars =
+       entry.target.querySelectorAll(".bar i");
+
+       bars.forEach(bar => {
+
+         bar.style.transform =
+         "scaleX(1)";
+
+         bar.style.width =
+         bar.dataset.width;
+
+       });
+
+     }
+
+   });
+
+ },
+ {threshold:.12}
+);
+
+$$(".reveal").forEach(
+ element =>
+ revealObserver.observe(element)
+);
+
+
+/* ACTIVE NAV */
+
+const sections =
+$$("section[id]");
+
+const navLinks =
+$$("nav a");
+
+const navObserver =
+new IntersectionObserver(
+ entries => {
+
+   entries.forEach(entry => {
+
+     if(entry.isIntersecting){
+
+       navLinks.forEach(
+        link =>
+        link.classList.remove("active")
+       );
+
+       const active =
+       document.querySelector(
+        `nav a[href="#${entry.target.id}"]`
+       );
+
+       if(active){
+        active.classList.add("active");
+       }
+
+     }
+
+   });
+
+ },
+ {rootMargin:"-35% 0px -55% 0px"}
+);
+
+sections.forEach(
+ section =>
+ navObserver.observe(section)
+);
+
+
+/* MOBILE NAV */
+
+$("#menuBtn").addEventListener(
+ "click",
+ () => {
+
+   $("#nav").classList.toggle("open");
+
+ }
+);
+
+navLinks.forEach(link => {
+
+ link.addEventListener(
+  "click",
+  () =>
+  $("#nav").classList.remove("open")
+ );
+
+});
+
+
+/* THEME */
+
+$("#themeBtn").addEventListener(
+ "click",
+ () => {
+
+   document.body.classList.toggle("light");
+
+   const light =
+   document.body.classList.contains("light");
+
+   $("#themeBtn").textContent =
+   light ? "☾" : "☼";
+
+ }
+);
+
+
+/* PROFILE 3D TILT */
+
+const photoShell =
+$("#photoShell");
+
+photoShell.addEventListener(
+ "pointermove",
+ event => {
+
+   if(
+    !window.matchMedia(
+     "(pointer:fine)"
+    ).matches
+   ) return;
+
+   const rect =
+   photoShell.getBoundingClientRect();
+
+   const x =
+   event.clientX - rect.left;
+
+   const y =
+   event.clientY - rect.top;
+
+   const rotateY =
+   ((x / rect.width) - .5) * 12;
+
+   const rotateX =
+   ((y / rect.height) - .5) * -12;
+
+   photoShell.style.transform =
+   `perspective(900px)
+    rotateX(${rotateX}deg)
+    rotateY(${rotateY}deg)`;
+ }
+);
+
+photoShell.addEventListener(
+ "pointerleave",
+ () => {
+
+   photoShell.style.transform = "";
+
+ }
+);
+
+
+/* PROJECT 3D TILT */
+
+$$(".project").forEach(card => {
+
+ card.addEventListener(
+  "pointermove",
+  event => {
+
+   if(
+    !window.matchMedia(
+     "(pointer:fine)"
+    ).matches
+   ) return;
+
+   const rect =
+   card.getBoundingClientRect();
+
+   const x =
+   event.clientX - rect.left;
+
+   const y =
+   event.clientY - rect.top;
+
+   const rotateX =
+   ((y / rect.height) - .5) * -5;
+
+   const rotateY =
+   ((x / rect.width) - .5) * 5;
+
+   card.style.transform =
+   `perspective(900px)
+    rotateX(${rotateX}deg)
+    rotateY(${rotateY}deg)
+    translateY(-5px)`;
+  }
+ );
+
+ card.addEventListener(
+  "pointerleave",
+  () => {
+
+   card.style.transform = "";
+
+  }
+ );
+
+});
+
+
+/* SKILL GLOW */
+
+$$(".skill").forEach(skill => {
+
+ skill.addEventListener(
+  "pointermove",
+  event => {
+
+   const rect =
+   skill.getBoundingClientRect();
+
+   skill.style.setProperty(
+    "--x",
+    `${event.clientX - rect.left}px`
+   );
+
+   skill.style.setProperty(
+    "--y",
+    `${event.clientY - rect.top}px`
+   );
+
+  }
+ );
+
+});
+
+
+/* PROJECT FILTER */
+
+$$(".filter").forEach(button => {
+
+ button.addEventListener(
+  "click",
+  () => {
+
+   $$(".filter").forEach(
+    b =>
+    b.classList.remove("active")
+   );
+
+   button.classList.add("active");
+
+   const filter =
+   button.dataset.filter;
+
+   $$(".project").forEach(project => {
+
+     const category =
+     project.dataset.category;
+
+     const show =
+     filter === "all" ||
+     category === filter;
+
+     project.style.display =
+     show ? "" : "none";
+
+   });
+
+  }
+ );
+
+});
+
+
+/* PROJECT MODAL */
+
+const modal =
+$("#projectModal");
+
+function openProject(project){
+
+ $("#modalTitle").textContent =
+ project.dataset.title;
+
+ $("#modalDescription").textContent =
+ project.dataset.description;
+
+ modal.classList.add("open");
+
+ modal.setAttribute(
+  "aria-hidden",
+  "false"
+ );
+
+}
+
+function closeProject(){
+
+ modal.classList.remove("open");
+
+ modal.setAttribute(
+  "aria-hidden",
+  "true"
+ );
+
+}
+
+$$(".view").forEach(button => {
+
+ button.addEventListener(
+  "click",
+  () => {
+
+   openProject(
+    button.closest(".project")
+   );
+
+  }
+ );
+
+});
+
+$("#closeModal").addEventListener(
+ "click",
+ closeProject
+);
+
+modal.addEventListener(
+ "click",
+ event => {
+
+   if(event.target === modal){
+     closeProject();
+   }
+
+ }
+);
+
+
+/* COMMAND PALETTE */
+
+const command =
+$("#command");
+
+function openCommand(){
+
+ command.classList.add("open");
+
+ $("#commandInput").value = "";
+
+ $("#commandInput").focus();
+
+}
+
+function closeCommand(){
+
+ command.classList.remove("open");
+
+}
+
+$("#commandBtn").addEventListener(
+ "click",
+ openCommand
+);
+
+command.addEventListener(
+ "click",
+ event => {
+
+   if(event.target === command){
+    closeCommand();
+   }
+
+ }
+);
+
+$$("[data-go]").forEach(button => {
+
+ button.addEventListener(
+  "click",
+ () => {
+
+   const target =
+   button.dataset.go;
+
+   closeCommand();
+
+   document.querySelector(target)
+   ?.scrollIntoView({
+     behavior:"smooth"
+   });
+
+  }
+ );
+
+});
+
+
+/* KEYBOARD */
+
+document.addEventListener(
+ "keydown",
+ event => {
+
+   if(
+    (event.ctrlKey || event.metaKey) &&
+    event.key.toLowerCase() === "k"
+   ){
+
+     event.preventDefault();
+
+     openCommand();
+
+   }
+
+   if(event.key === "Escape"){
+
+     closeCommand();
+     closeProject();
+
+   }
+
+ }
+);
+
+
+/* MAGNETIC BUTTONS */
+
+$$(".magnetic").forEach(button => {
+
+ button.addEventListener(
+  "pointermove",
+  event => {
+
+   if(
+    !window.matchMedia(
+     "(pointer:fine)"
+    ).matches
+   ) return;
+
+   const rect =
+   button.getBoundingClientRect();
+
+   const x =
+   event.clientX -
+   rect.left -
+   rect.width / 2;
+
+   const y =
+   event.clientY -
+   rect.top -
+   rect.height / 2;
+
+   button.style.transform =
+   `translate(${x*.12}px,${y*.12}px)`;
+
+  }
+ );
+
+ button.addEventListener(
+  "pointerleave",
+  () => {
+
+   button.style.transform = "";
+
+  }
+ );
+
+});
+
+
+/* PARTICLE NETWORK */
+
+const canvas =
+$("#particles");
+
+const ctx =
+canvas.getContext("2d");
+
+let particles = [];
+
+function resizeCanvas(){
+
+ canvas.width =
+ window.innerWidth *
+ devicePixelRatio;
+
+ canvas.height =
+ window.innerHeight *
+ devicePixelRatio;
+
+ canvas.style.width =
+ window.innerWidth + "px";
+
+ canvas.style.height =
+ window.innerHeight + "px";
+
+ ctx.setTransform(
+  devicePixelRatio,
+  0,
+  0,
+  devicePixelRatio,
+  0,
+  0
+ );
+
+}
+
+function createParticles(){
+
+ particles = [];
+
+ const count =
+ Math.min(
+  75,
+  Math.floor(window.innerWidth / 16)
+ );
+
+ for(let i=0;i<count;i++){
+
+  particles.push({
+
+   x:Math.random() *
+   window.innerWidth,
+
+   y:Math.random() *
+   window.innerHeight,
+
+   vx:(Math.random()-.5)*.25,
+
+   vy:(Math.random()-.5)*.25,
+
+   r:Math.random()*1.5+.5
+
+  });
+
+ }
+
+}
+
+function drawParticles(){
+
+ ctx.clearRect(
+  0,
+  0,
+  window.innerWidth,
+  window.innerHeight
+ );
+
+ for(const p of particles){
+
+  p.x += p.vx;
+  p.y += p.vy;
+
+  if(
+   p.x<0 ||
+   p.x>window.innerWidth
+  ){
+   p.vx *= -1;
+  }
+
+  if(
+   p.y<0 ||
+   p.y>window.innerHeight
+  ){
+   p.vy *= -1;
+  }
+
+  ctx.beginPath();
+
+  ctx.arc(
+   p.x,
+   p.y,
+   p.r,
+   0,
+   Math.PI*2
+  );
+
+  ctx.fillStyle =
+  "rgba(0,255,136,.32)";
+
+  ctx.fill();
+
+ }
+
+ for(let i=0;i<particles.length;i++){
+
+  for(
+   let j=i+1;
+   j<particles.length;
+   j++
+  ){
+
+   const a =
+   particles[i];
+
+   const b =
+   particles[j];
+
+   const dx =
+   a.x-b.x;
+
+   const dy =
+   a.y-b.y;
+
+   const distance =
+   Math.sqrt(dx*dx+dy*dy);
+
+   if(distance<120){
+
+    ctx.beginPath();
+
+    ctx.moveTo(a.x,a.y);
+
+    ctx.lineTo(b.x,b.y);
+
+    ctx.strokeStyle =
+    `rgba(0,255,136,${
+     .09*(1-distance/120)
+    })`;
+
+    ctx.lineWidth=.6;
+
+    ctx.stroke();
+
+   }
+
+  }
+
+ }
+
+ requestAnimationFrame(drawParticles);
+
+}
+
+if(
+ !window.matchMedia(
+  "(prefers-reduced-motion: reduce)"
+ ).matches
+){
+
+ resizeCanvas();
+
+ createParticles();
+
+ drawParticles();
+
+ window.addEventListener(
+  "resize",
+  () => {
+
+   resizeCanvas();
+   createParticles();
+
+  }
+ );
+
+}
+
+</script>
+
+</body>
+</html>
